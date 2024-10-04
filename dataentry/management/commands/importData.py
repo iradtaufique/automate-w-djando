@@ -2,6 +2,13 @@ import csv
 from dataentry.models import Students
 from django.core.management.base import BaseCommand
 
+
+"""
+ ------ HOW TO RUN THIS COMMAND ---------
+    ./MANAGE.PY FILENAME(importData) PATHTOCSVFILE
+    EXAMPLE: ./MANAGE.PY IMPORTDATA  /Users/USERNAME/Downloads/Datasets/student_data.csv 
+"""
+
 class Command(BaseCommand):
     help = "Commands to import CSV file"
     def add_arguments(self, parser):

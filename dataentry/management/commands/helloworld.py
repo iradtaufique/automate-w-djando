@@ -1,5 +1,12 @@
 from django.core.management.base import BaseCommand
 
+
+"""
+ ------ HOW TO RUN THIS COMMAND ---------
+    ./MANAGE.PY FILENAME(HELLOWORLD)
+    EXAMPLE: ./MANAGE.PY HELLOWORLD
+"""
+
 class Command(BaseCommand):
     """this line help line will be displayed at the top
     of command when --help run on this custom command"""

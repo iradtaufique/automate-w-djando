@@ -3,6 +3,13 @@ from django.core.management.base import BaseCommand
 from dataentry.models import Students
 
 
+"""
+ ------ HOW TO RUN THIS COMMAND ---------
+    ./MANAGE.PY FILENAME(inserData)
+    EXAMPLE: ./MANAGE.PY INSERTDATA 
+"""
+
+
 class Command(BaseCommand):
     help = "Inserting Data to our database"
 

@@ -1,5 +1,11 @@
 from django.core.management.base import BaseCommand
 
+
+"""
+ ------ HOW TO RUN THIS COMMAND ---------
+    ./MANAGE.PY FILENAME(GREETING) NAMETOGREAT
+    EXAMPLE: ./MANAGE.PY GREETING PETER
+"""
 class Command(BaseCommand):
     help = "This greeting Command Will Great User"
 
