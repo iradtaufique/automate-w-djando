@@ -19,13 +19,6 @@ class Command(BaseCommand):
         myfile = kwargs['file_path']
         mymodel_name = kwargs['model_name'].capitalize() #variable that will store model name.
 
-        """variable used To count records"""
-        new_rec_num = 0
-        exst_rec_num = 0
-
-        """
-        for loop to search the name of model specified within the whole project apps
-        """
         model = None
         for app_config in apps.get_app_configs():
             """ using try to search model"""

@@ -1,5 +1,3 @@
-from os import write
-
 from django.core.management import BaseCommand
 from dataentry.models import Students
 import datetime
