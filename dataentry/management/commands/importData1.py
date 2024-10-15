@@ -14,11 +14,10 @@ class Command(BaseCommand):
         parser.add_argument('file_path', type=str, help="CSV File Path")
         parser.add_argument('model_name', type=str, help="Name of the Model we need to import")
 
-        print('this works1')
     def handle(self, *args, **kwargs):
         #todo: this is variable that will store the path of the file
         myfile = kwargs['file_path']
-        mymodel_name = kwargs['model_name'] #variable that will store model name.
+        mymodel_name = kwargs['model_name'].capitalize() #variable that will store model name.
 
         """variable used To count records"""
         new_rec_num = 0
@@ -27,7 +26,6 @@ class Command(BaseCommand):
         """
         for loop to search the name of model specified within the whole project apps
         """
-        print(mymodel_name.capitalize())
         model = None
         for app_config in apps.get_app_configs():
             """ using try to search model"""
@@ -38,15 +36,19 @@ class Command(BaseCommand):
                 continue # once the mode is not found in app go search in the next app
 
         if not model:
-            raise CommandError(f'Model {mymodel_name} Not found in Project')
-
-        print(model)
+            raise CommandError(f'No Model Name {mymodel_name} found in our app')
 
         #todo: opening the csv file
         with open(myfile, 'r') as file:
             #todo: read the file as a dictionary
             reader = csv.DictReader(file)
             for data in reader:
+                """
+                i will need to add the validation which will not be the ID, 
+                maybe something else because the model will not be the same
+                always, to make it easier id will be ok but don't know if 
+                the csv file will contain id fild
+                """
                 model.objects.create(**data)
         self.stdout.write(self.style.SUCCESS(f"Record imported Successfully in Database!"))
 
