@@ -21,10 +21,12 @@ from django.urls import path, include
 
 import dataentry.urls
 from .views import homePage
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homePage, name='home'),
     path('', include(dataentry.urls)),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
